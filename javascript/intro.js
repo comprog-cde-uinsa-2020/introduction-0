@@ -1,10 +1,13 @@
-var a
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
 
-print("Example using variable in javascript \n");
+console.log("Example using variable in javascript \n");
 
-var s = prompt("Enter length of side : ");   
-print("the formula a = s * s");
-a = s * s; // calculate area; then store in a
-print("\n");
-
-print("Area of Square = %d", a);
+readline.question("Enter length of side : ", (s) => {
+    console.log(`the formula a = ${s} * ${s}`)
+    var a = s * s;
+    console.log("Area of Square = %d", a);
+    readline.close()
+})
