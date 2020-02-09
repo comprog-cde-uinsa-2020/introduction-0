@@ -2,7 +2,7 @@
 
 int main() {
     
-    var a, s; // variable
+    int a, s; // variable
 
     printf("Example using variable in c \n");
     printf("Enter length of side : ");
