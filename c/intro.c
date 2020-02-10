@@ -11,6 +11,18 @@ int main() {
     
     printf("the formula a = s * s");
     a = s * s; // calculate area; then store in a
+    
+    int threshold = 100;
+
+    printf("\n");
+    if (s > threshold) {
+       printf("size: %i more than threshold: %i", s, threshold);
+    } else if ( s == 100) {
+      printf("size: %i equal with threshold: %i", s, threshold);
+    } else {
+      printf("size: %i less than threshold: %i", s, threshold);       
+    }
+
     printf("\n");
 
     printf("Area of Square = %d", a);
