@@ -21,7 +21,7 @@ public class Intro {
 
         // branching 
         System.out.print("\n");
-        if (s > threshold) {
+        if (s > (threshold+1)) {
           System.out.print(String.format("size: %d more than threshold: %d", s, threshold));
         } else if ( s == 100) {
           System.out.print(String.format("size: %d equal with threshold: %d", s, threshold));

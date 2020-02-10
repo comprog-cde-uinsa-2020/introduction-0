@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # branching => if elif else
     threshold = 100
     
-    if (s > threshold):
+    if (s > (threshold+1)):
       print("size: {} more than threshold: {}".format(s, threshold))
     elif( s == 100):
       print("size: {} equal with threshold: {}".format(s, threshold))

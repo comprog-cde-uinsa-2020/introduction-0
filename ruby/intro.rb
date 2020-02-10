@@ -1,5 +1,3 @@
-
-
 puts "Example using variable in c \n"
 puts "Enter length of side : "
 

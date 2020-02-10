@@ -15,7 +15,7 @@ int main() {
     int threshold = 100;
 
     printf("\n");
-    if (s > threshold) {
+    if (s > (threshold+1)) {
        printf("size: %i more than threshold: %i", s, threshold);
     } else if ( s == 100) {
       printf("size: %i equal with threshold: %i", s, threshold);

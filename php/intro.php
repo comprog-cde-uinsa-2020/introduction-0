@@ -7,5 +7,17 @@
     $a = $s * $s; // calculate area; then store in a
     print "\n";
     
+    $threshold = 100;
+
+    print "\n";
+    if ($s > ($threshold+1)) {
+       print "size: $s more than threshold: $threshold";
+    } else if ($s == $threshold) {
+      print "size: $s equal with threshold: $threshold";
+    } else {
+      print "size: $s less than threshold: $threshold";       
+    }
+
+    print "\n";
     print "Area of Square = $a";
 ?>
