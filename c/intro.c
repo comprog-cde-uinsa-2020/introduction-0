@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+// function
+int rectangle(int s) {
+  return (s*s);
+};
+
+
 int main() {
     
     int a, s; // variable
@@ -10,10 +16,11 @@ int main() {
     scanf("%d", &s); // store length in s
     
     printf("the formula a = s * s");
-    a = s * s; // calculate area; then store in a
+    a = rectangle(s); // calculate area; then store in a
     
     int threshold = 100;
 
+    // branching 
     printf("\n");
     if (s > (threshold+1)) {
        printf("size: %i more than threshold: %i", s, threshold);
