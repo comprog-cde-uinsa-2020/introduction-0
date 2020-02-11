@@ -19,6 +19,7 @@ int main() {
 
     cout << "show array size "<< size << endl;
 
+    // for loop to input value one by one
     for (int i = 0; i < size; i++) {
       cout << "input index ["<<i<<"] value of array:";
       cin >> array[i];
@@ -27,6 +28,7 @@ int main() {
     cout << "show all of array";
     printarray(array, size);
     
+    // for loop to print one by one
     cout << "or show one by one array "<<endl;
     for (int i=0; i < size; i++) {
       cout << "show array by index:["<<i<<"] is value:"<< array[i]<<endl;  

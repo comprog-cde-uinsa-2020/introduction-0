@@ -2,7 +2,6 @@ function rectangle(s) {
   return s * s;
 }
 
-
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
