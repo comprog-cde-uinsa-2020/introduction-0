@@ -1,3 +1,8 @@
+function rectangle(s) {
+  return s * s;
+}
+
+
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
@@ -9,7 +14,7 @@ readline.question("Enter length of side : ", (s) => {
     var a, s, threshold = 100;
     console.log(`the formula a = ${s} * ${s}`)
     
-    a = s * s;
+    a = rectangle(s);
 
     console.log("\n");
     if (s > (threshold+1)) {
