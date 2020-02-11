@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class Intro {
 
+    static int rectangle(int s) {
+      return (s * s);
+    }
     public static void main(String []args) {
         
         int a; // variable
@@ -12,7 +15,7 @@ public class Intro {
  
         int s = scanner.nextInt();
 
-        a = s * s; // calculate area; then store in a
+        a = rectangle(s); // calculate area; then store in a
 
         System.out.print("the formula a = s * s");
         System.out.print("\n");
@@ -31,6 +34,5 @@ public class Intro {
 
         System.out.print("\n");
         System.out.print(String.format("Area of Square = %d", a));
-
     }
 }
