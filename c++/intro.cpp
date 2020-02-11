@@ -2,6 +2,10 @@
 #include <cstdio>
 using namespace std;
 
+int rectangle(int s) {
+  return (s*s);
+}
+
 int main() {
 
     int a, s, threshold = 100;
@@ -12,7 +16,7 @@ int main() {
     scanf("%d", &s); // store length in s
     
     cout << "the formula a = s * s" << endl;
-    a = s * s; // calculate area; then store in a
+    a = rectangle(s); // calculate area; then store in a
     cout << endl;
 
     cout <<"\n";
@@ -28,6 +32,5 @@ int main() {
 
     cout <<"Area of Square = " << a << endl;
 
-    return 0;
-    
+    return 0;    
 }
