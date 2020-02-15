@@ -1,9 +1,10 @@
 #include <stdio.h>
 
 // function to print array
-void printarray (int arg[], int length) {
-  for (int n = 0; n<length; ++n)
+void printArray (int arg[], int length) {
+  for (int n = 0; n<length; ++n){
     printf("%d ",arg[n]);
+  }
   printf("\n");
 }
 
@@ -26,7 +27,7 @@ int main() {
     }
 
     printf("show all of array :");
-    printarray(array, size);
+    printArray(array, size);
     printf("\n");
     
     // for loop to print one by one
