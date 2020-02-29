@@ -5,6 +5,7 @@ public class Intro {
     static int rectangle(int s) {
       return (s * s);
     }
+    
     public static void main(String []args) {
         
         int a; // variable
