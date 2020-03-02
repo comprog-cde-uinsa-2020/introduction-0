@@ -1,0 +1,38 @@
+.box{
+  width: 40%;
+  border-radius: 5px;
+  border: 1px solid #9b9b9b;
+  padding: 20px 0px 20px 0px;
+  margin-left: 30%;
+}
+
+.h2{
+  font-family: calibri;
+  font-weight: lighter;
+  letter-spacing: 3px;
+}
+
+#bil1{
+  padding: 5px;
+}
+        
+#bil2{
+  padding: 5px;
+}
+ 
+#hasil{
+  color: #ff0b0b;
+}
+ 
+.tbl1{
+  font-family: calibri;
+}
+
+.btn{
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 0px;
+  color: #fff;
+  background: #3b7fff;
+}
