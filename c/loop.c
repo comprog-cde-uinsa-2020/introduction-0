@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include "printarray.h"
 
 int main() {
@@ -27,6 +28,6 @@ int main() {
     // for loop to print one by one
     printf("or show one by one array \n");
     for (int i = 0; i < size; i++) {
-      printf("show array by index:[%d] is value: %f \n",i , farray[i]);
+      printf("show array by index:[%d] is value: %.1f \n",i , farray[i]);
     }
 }
