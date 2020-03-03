@@ -1,5 +1,5 @@
 console.log("test");
-
+alert("test");
 function Hitung(dat1,dat2,dat3,dat4){
    var total = dat1 + dat2 + dat3 + dat4;
 
@@ -7,6 +7,7 @@ function Hitung(dat1,dat2,dat3,dat4){
 
    return totalrat;
 }
+
 
 function InputData(Bilangan){
    var data = parseFloat(document.getElementById(Bilangan).value);
@@ -33,4 +34,5 @@ function Ratarata(){
 
    //OutPut
    Output(ratarata);
+   alert(document.getElementById(nama));
 }

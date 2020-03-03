@@ -4,7 +4,7 @@ import hero
 if __name__ == "__main__":
 
    listName = ["Saras 008", "Mr Black", "Panji Manusia Milenium", "Gatot Kaca"]
-   listPower = [100, 120, 130, 1000]
+   listPower = [100.0, 120.100, 130, 1000]
 
    listHero = []
 

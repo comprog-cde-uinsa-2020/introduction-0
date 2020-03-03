@@ -1,3 +1,3 @@
 
 // function to print array
-void printArray (int arg[], int length);
+void printArray (float arg[], int length);
