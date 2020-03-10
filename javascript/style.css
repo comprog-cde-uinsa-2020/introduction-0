@@ -28,6 +28,20 @@
   font-family: calibri;
 }
 
+.container{
+  width:100%;
+  height:300px;
+  margin:0 auto;
+  position: relative; /* add */
+}
+.canvas{
+  width:100%;
+  height:100%;
+  position:absolute; /* change */
+  left: 0; 
+  top: 0;
+}
+
 .btn{
   padding: 10px;
   border-radius: 5px;

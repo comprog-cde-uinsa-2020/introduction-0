@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Drawing</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<table class="tbl1">
+    <tr>
+        <td><label>Rectangle Size</label></td>
+        <td>=</td>
+        <td><input type="text" id="rect" placeholder="Size Rect"></td>
+    </tr>
+    <tr>
+        <td><label>Circle Size</label></td>
+        <td>=</td>
+        <td><input type="text" id="circle" placeholder="Size Circle"></td>
+    </tr>
+    <tr>
+        <td><input type="button" id="btn" value="Show Building" class="btn" onclick="drawall()"/></td>
+    </tr>
+</table>
+
+<div class="container">
+    <canvas id="can_rect" class="canvas" style="z-index:1;"></canvas>
+    <canvas id="can_circle" class="canvas" style="z-index:2;"></canvas>
+</div>
+
+
+<script src="draw.js"></script>
+</body>
+</html>
