@@ -89,6 +89,9 @@ public class InputChartPlot extends ApplicationFrame implements ActionListener{
       if (s.equals("submit")) { 
         state = tfState.getText();
         patient = tfPatient.getText();
+        
+        System.out.println(state);
+        System.out.println(patient);
 
         lState.setText(tfState.getText());
         lPatient.setText(tfPatient.getText());
