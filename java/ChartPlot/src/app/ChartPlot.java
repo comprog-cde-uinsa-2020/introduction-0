@@ -23,6 +23,7 @@ public class ChartPlot extends ApplicationFrame{
   public ChartPlot(String appTitle, String chartTitle, String[] label, int[] patient) {
     super(appTitle);
     
+    // no.3
     JFreeChart lineChart = ChartFactory.createLineChart(
             chartTitle,
             "Patient of Corona","State of Corona",
@@ -33,8 +34,10 @@ public class ChartPlot extends ApplicationFrame{
       ChartPanel chartPanel = new ChartPanel( lineChart );
       chartPanel.setPreferredSize( new java.awt.Dimension( 560 , 367 ) );
       setContentPane( chartPanel );
+    // no.3
   }
   
+  // no. 2
   private DefaultCategoryDataset createDataset(String[] label, int[] patient) {
     DefaultCategoryDataset dataset = new DefaultCategoryDataset();
     
@@ -44,6 +47,7 @@ public class ChartPlot extends ApplicationFrame{
     
     return dataset;
   }
+  // no. 2
 
   /**
    * @param args the command line arguments
@@ -54,11 +58,13 @@ public class ChartPlot extends ApplicationFrame{
     String[] state = new String[]{"Cina", "Amerika"};
     int[] patient = new int[]{10, 100};
     
+    // no. 1    
     ChartPlot chart = new ChartPlot("Corona in the World", "Country Of Corona", state, patient);
 
     chart.pack( );
     RefineryUtilities.centerFrameOnScreen(chart);
     chart.setVisible(true);
+    // no. 1    
   
   }
   

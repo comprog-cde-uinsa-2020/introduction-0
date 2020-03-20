@@ -14,19 +14,24 @@ import javax.swing.*;
  * @author webme
  */
 public class InputData extends JFrame implements ActionListener{
+  
+  // no. 5  
   // JTextField 
   static JTextField tfState;
   static JTextField tfPatient;
+  // no. 5
 
   // JFrame 
   static JFrame coronaChart; 
 
+  // no. 6
   // JButton 
   static JButton bSubmit; 
 
   // label to display text 
   static JLabel lState; 
   static JLabel lPatient; 
+  // no. 6
   
   // default constructor 
   InputData() { } 
@@ -36,6 +41,7 @@ public class InputData extends JFrame implements ActionListener{
     // create a new frame to store text field and button 
     coronaChart = new JFrame("Corona Chart"); 
 
+    // no.7    
     // create a label to display text 
     lState = new JLabel("nothing entered of state's corona"); 
     lPatient = new JLabel("nothing entered of patient's corona"); 
@@ -62,6 +68,7 @@ public class InputData extends JFrame implements ActionListener{
     panel.add(bSubmit); 
     panel.add(lState);
     panel.add(lPatient);
+    // no.7
 
     // add panel to frame 
     coronaChart.add(panel); 
@@ -75,6 +82,7 @@ public class InputData extends JFrame implements ActionListener{
     // if the vutton is pressed 
   @Override
   public void actionPerformed(ActionEvent e) { 
+      // no. 4    
       String s = e.getActionCommand(); 
       if (s.equals("submit")) { 
           // set the text of the label to the text of the field 
@@ -84,6 +92,7 @@ public class InputData extends JFrame implements ActionListener{
           // set the text of field to blank 
           tfState.setText("  ");
           tfPatient.setText("  ");
-      } 
+      }
+      // no. 4
   } 
 }
