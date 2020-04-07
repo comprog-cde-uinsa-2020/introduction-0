@@ -40,13 +40,10 @@
 package app;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
@@ -54,7 +51,6 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.time.Millisecond;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
@@ -67,107 +63,37 @@ import org.jfree.ui.RefineryUtilities;
  * (random) data by clicking on a button.
  *
  */
-public class InputChartPlot extends ApplicationFrame implements ActionListener {
-    
-    private String[] label;
-    private String[] patient;
-    
-    public TextField tfLabel;
-    public TextField tfPatient;
-    public JLabel titleForm;
+public class DynamicDataDemo extends ApplicationFrame implements ActionListener {
 
-    private void setLabel(String label) {
-      String[] tmpLabel = label.split(",");
-      for (int i = 0; i < tmpLabel.length; i++) {
-        label = tmpLabel[i];      
-      }
-    }
-    
-    private String[] getLabel() {
-      return label;
-    }
+    /** The time series data. */
+    private TimeSeries series;
 
-    private void setPatient(String patient) {
-      String[] tmpPatient = patient.split(",");
-      for (int i = 0; i < tmpPatient.length; i++) {
-        patient = tmpPatient[i];      
-      }
-    }
+    /** The most recent value added. */
+    private double lastValue = 100.0;
 
-    private String[] getPatient() {
-      return patient;
-    }
-    
-    private DefaultCategoryDataset createDataset(String[] label, String[] patient) {
-      DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-      
-      System.out.println(label);
-      System.out.println(patient);
-      
-      String[] tmpLabel = new String[label.length];
-      String[] tmpPatient = new String[patient.length];
-      
-      System.out.println(tmpLabel);
-      System.out.println(tmpPatient);
-      
-      for (int i = 0; i < tmpLabel.length; i++){
-        dataset.addValue(Integer.parseInt(tmpPatient[i]), "corona" , tmpLabel[i]);
-      }
-    
-      return dataset;
-    }
-   
     /**
      * Constructs a new demonstration application.
      *
      * @param title  the frame title.
      */
-    public InputChartPlot(final String title) {
+    public DynamicDataDemo(final String title) {
+
         super(title);
-                
-        System.out.println(createDataset(getLabel(), getPatient()));
-        
-        if (getLabel().equals(null) && getPatient().equals(null)) {
+        this.series = new TimeSeries("Random Data", Millisecond.class);
+        final TimeSeriesCollection dataset = new TimeSeriesCollection(this.series);
+        final JFreeChart chart = createChart(dataset);
 
-          titleForm = new JLabel("Input Data Corona");
-          tfLabel = new TextField("Input state");
-          tfPatient = new TextField("Input patient");
-          final JButton btnShowCorona = new JButton("Show Data Corona");
-          btnShowCorona.setActionCommand("ADD_DATA");
-          btnShowCorona.addActionListener(this);
+        final ChartPanel chartPanel = new ChartPanel(chart);
+        final JButton button = new JButton("Add New Data Item");
+        button.setActionCommand("ADD_DATA");
+        button.addActionListener(this);
 
-          final JPanel inputForm = new JPanel(new FlowLayout());
-          inputForm.add(titleForm);
-          inputForm.add(tfLabel);
-          inputForm.add(tfPatient);
-          inputForm.add(btnShowCorona);
+        final JPanel content = new JPanel(new BorderLayout());
+        content.add(chartPanel);
+        content.add(button, BorderLayout.SOUTH);
+        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
+        setContentPane(content);
 
-          final JPanel content = new JPanel(new BorderLayout());
-          setContentPane(content);
-        } else {
-          final JFreeChart chart = createChart((XYDataset) createDataset(getLabel(), getPatient()));
-
-          final ChartPanel chartPanel = new ChartPanel(chart);
-          final JLabel titleForm = new JLabel("Input Data Corona");
-          final TextField tfLabel = new TextField("Input state");
-          final TextField tfPatient = new TextField("Input patient");
-          final JButton btnShowCorona = new JButton("Show Data Corona");
-          btnShowCorona.setActionCommand("ADD_DATA");
-          btnShowCorona.addActionListener(this);
-
-          final JPanel inputForm = new JPanel(new FlowLayout());
-          inputForm.add(titleForm);
-          inputForm.add(tfLabel);
-          inputForm.add(tfPatient);
-          inputForm.add(btnShowCorona);
-
-          final JPanel content = new JPanel(new BorderLayout());
-          content.add(chartPanel, BorderLayout.NORTH);
-          content.add(inputForm, BorderLayout.SOUTH);
-          chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
-          setContentPane(content);
-        }
-        
     }
 
     /**
@@ -187,7 +113,6 @@ public class InputChartPlot extends ApplicationFrame implements ActionListener {
             true, 
             false
         );
-        
         final XYPlot plot = result.getXYPlot();
         ValueAxis axis = plot.getDomainAxis();
         axis.setAutoRange(true);
@@ -213,12 +138,13 @@ public class InputChartPlot extends ApplicationFrame implements ActionListener {
      *
      * @param e  the action event.
      */
-    @Override
     public void actionPerformed(final ActionEvent e) {
         if (e.getActionCommand().equals("ADD_DATA")) {
-          
-          setLabel(tfLabel.getText());
-          setPatient(tfPatient.getText());
+            final double factor = 0.90 + 0.2 * Math.random();
+            this.lastValue = this.lastValue * factor;
+            final Millisecond now = new Millisecond();
+            System.out.println("Now = " + now.toString());
+            this.series.add(new Millisecond(), this.lastValue);
         }
     }
 
@@ -229,7 +155,7 @@ public class InputChartPlot extends ApplicationFrame implements ActionListener {
      */
     public static void main(final String[] args) {
 
-        final InputChartPlot demo = new InputChartPlot("Dynamic Data Demo");
+        final DynamicDataDemo demo = new DynamicDataDemo("Dynamic Data Demo");
         demo.pack();
         RefineryUtilities.centerFrameOnScreen(demo);
         demo.setVisible(true);
